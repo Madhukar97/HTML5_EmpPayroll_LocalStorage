@@ -24,7 +24,7 @@
     </div>
   </header>
   <div class="form-content">
-    <form class="form" action="#" onsubmit="save(event);return false">
+    <form class="form" action="#" onsubmit="save(event);return false" onreset="resetForm()">
       <div class="form-head">Employee Payroll Form</div>
       <div class="row-content">
         <label class="label text" for="name">Name</label>
@@ -78,7 +78,7 @@
       </div>
       <div class="row-content">
         <label class="label text" for="salary">Salary</label>
-        <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="340000">
+        <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
         <output class="salary-output text" for="salary">400000</output>
       </div>
       <div class="row-content">
