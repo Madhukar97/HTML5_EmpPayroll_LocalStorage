@@ -56,6 +56,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const save = () => {
   try {
     let employeePayrollData = createEmployeePayroll();
+    createAndUpdateStorage(employeePayrollData);
   } catch (e) {
     return;
   }
@@ -65,7 +66,6 @@ const createEmployeePayroll = () => {
   let employeePayrollData = new EmployeePayrollData();
   try {
     employeePayrollData.name = document.querySelector('#name').value;
-    createAndUpdateStorage(employeePayrollData);
   } catch (e) {
     setTextValue('.name-error', e);
     throw e;
@@ -98,10 +98,10 @@ function createAndUpdateStorage(employeePayrollData){
   if(employeePayrollList != undefined) {
     employeePayrollList.push(employeePayrollData);
   }else {
-    employeePayrollList = [employeePayrollData]
+    employeePayrollList = [employeePayrollData];
   }
   alert(employeePayrollList.toString());
-  localStorage.setItem('EmployeePayrollList', JSON.stringify(employeePayrollList))
+  localStorage.setItem('EmployeePayrollList', JSON.stringify(employeePayrollList));
 }
 
 const resetForm = () => {
