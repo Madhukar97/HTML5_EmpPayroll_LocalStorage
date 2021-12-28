@@ -6,8 +6,7 @@
         "HR",
         "Sales",
         "Finance",
-        "Engineer",
-        "Others"
+        "Engineer"
       ],
       "_gender": "male",
       "_name": "Madhukar",
@@ -29,18 +28,6 @@
       "_note": "asdsad asdas dsad asdasd as",
       "_startDate": "19 Dec 2021",
       "id": "vjKhOR6"
-    },
-    {
-      "_name": "Sarah",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png",
-      "_gender": "female",
-      "_department": [
-        "HR"
-      ],
-      "_salary": "343000",
-      "_note": "",
-      "_startDate": "1 Dec 2021",
-      "id": "2i_BZFS"
     }
   ]
 }
