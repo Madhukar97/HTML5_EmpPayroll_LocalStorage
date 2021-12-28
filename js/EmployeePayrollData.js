@@ -1,4 +1,5 @@
 class EmployeePayrollData {
+  id;
 
   get name() {
     return this._name;
@@ -15,14 +16,6 @@ class EmployeePayrollData {
   }
   set profilePic(profilePic) {
     this._profilePic = profilePic;
-  }
-
-  get id() {
-    return this._id;
-  }
-  set id(id) {
-    if (id > 0) this._id = id;
-    else throw "ID is not valid"
   }
 
   get salary() {
