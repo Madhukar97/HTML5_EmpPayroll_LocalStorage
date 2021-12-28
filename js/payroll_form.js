@@ -54,7 +54,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       dateError.textContent = e;
     }
   });
-
   checkForUpdate();
 
 });
