@@ -1,12 +1,21 @@
+let empPayrollList;
+
 window.addEventListener('DOMContentLoaded', (event) => {
+  empPayrollList = getEmployeePayrollDataFromStorage();
+  document.querySelector(".emp-count").textContent = empPayrollList.length;
   createInnerHtml();
+  localStorage.removeItem('editEmp');
 });
 
-createInnerHtml = () => {
+const getEmployeePayrollDataFromStorage = () => {
+  return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
+const createInnerHtml = () => {
   const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th>" +
     "<th>Salary</th><th>StartDate</th><th>Actions</th>";
+  if (empPayrollList.length == 0) return;
   let innerHtml = `${headerHtml}`;
-  let empPayrollList = createEmployeePayrollJSON();
   for (const empPayrollData of empPayrollList) {
     innerHtml = `${innerHtml}
   <tr>
@@ -26,43 +35,6 @@ createInnerHtml = () => {
   }
   document.querySelector('#table-display').innerHTML = innerHtml;
 }
-
-const createEmployeePayrollJSON = () => {
-  let empPayrollListLocal = [
-    {
-      _name: "Narayan Mahadevan",
-      _gender: 'Male',
-      _department: ['Engineer', 'Sales'],
-      _salary: '500000',
-      _startDate: '29 oct 2019',
-      _note: '',
-      _id: new Date().getTime(),
-      _profilePic: '../assets/profile-images/Ellipse -2.png'
-    },
-    {
-      _name: 'Madhukar Tatiraju',
-      _gender: 'Male',
-      _department: ['Engineer', 'Finance'],
-      _salary: '350000',
-      _startDate: '6 Nov 2021',
-      _note: '',
-      _id: new Date().getTime(),
-      _profilePic: '../assets/profile-images/Ellipse -3.png'
-    },
-    {
-      _name: 'Saran Yellanki',
-      _gender: 'Male',
-      _department: ['HR', 'Finance'],
-      _salary: '450000',
-      _startDate: '30 Sep 2021',
-      _note: '',
-      _id: new Date().getTime(),
-      _profilePic: '../assets/profile-images/Ellipse -2.png'
-    }
-
-  ];
-  return empPayrollListLocal;
-};
 
 const getDeptHtml = (deptList) => {
   let deptHtml = '';

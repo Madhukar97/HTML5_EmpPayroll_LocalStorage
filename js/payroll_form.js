@@ -53,10 +53,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
 });
-const save = () => {
+const save = (event) => {
   try {
     let employeePayrollData = createEmployeePayroll();
     createAndUpdateStorage(employeePayrollData);
+    window.location.replace(site_properties.home_page);
   } catch (e) {
     return;
   }
@@ -91,13 +92,13 @@ const getSelectedValues = (propertyValue) => {
   return selItems;
 }
 
-function createAndUpdateStorage(employeePayrollData){
+function createAndUpdateStorage(employeePayrollData) {
 
   let employeePayrollList = JSON.parse(localStorage.getItem('EmployeePayrollList'));
 
-  if(employeePayrollList != undefined) {
+  if (employeePayrollList != undefined) {
     employeePayrollList.push(employeePayrollData);
-  }else {
+  } else {
     employeePayrollList = [employeePayrollData];
   }
   alert(employeePayrollList.toString());
@@ -105,18 +106,18 @@ function createAndUpdateStorage(employeePayrollData){
 }
 
 const resetForm = () => {
-  setValue('#name','');
-  setTextValue('.name-error','');
+  setValue('#name', '');
+  setTextValue('.name-error', '');
   unsetSelectedValues('[name=profile]');
   unsetSelectedValues('[name=gender]');
   unsetSelectedValues('[name=department]');
-  setValue('#salary','');
-  setTextValue('.salary-output',400000);
-  setValue('#notes','');
-  setValue('#day','1');
-  setValue('#month','January');
-  setValue('#year','2020');
-  setTextValue('.date-error','');
+  setValue('#salary', '');
+  setTextValue('.salary-output', 400000);
+  setValue('#notes', '');
+  setValue('#day', '1');
+  setValue('#month', 'January');
+  setValue('#year', '2020');
+  setTextValue('.date-error', '');
 }
 
 const unsetSelectedValues = (propertyValue) => {
