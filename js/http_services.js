@@ -1,13 +1,13 @@
 function makeServiceCall(methodType, url, async = true, data = null) {
-    return new Promise(function (resolve,reject) {
+    return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-            console.log(methodType+"state changed. Ready state: "+
-                xhr.readyState+" status: "+xhr.status);
-            if (xhr.status.toString().match('^[2][0-9]{2}$')){
+        xhr.onload = function () {
+            console.log(methodType + "state changed. Ready state: " +
+                xhr.readyState + " status: " + xhr.status);
+            if (xhr.status.toString().match('^[2][0-9]{2}$')) {
                 resolve(xhr.responseText);
-            }else if (xhr.status.toString().match('^[4,5][0-9]{2}$')){
-                reject ({
+            } else if (xhr.status.toString().match('^[4,5][0-9]{2}$')) {
+                reject({
                     status: xhr.status,
                     statusText: xhr.statusText
                 });
@@ -15,7 +15,7 @@ function makeServiceCall(methodType, url, async = true, data = null) {
             }
         }
         xhr.onerror = function () {
-            reject ({
+            reject({
                 status: xhr.status,
                 statusText: xhr.statusText
             });
@@ -26,7 +26,7 @@ function makeServiceCall(methodType, url, async = true, data = null) {
             console.log(data);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(JSON.stringify(data));
-        }else xhr.send();
-        console.log(methodType+ " request sent to the server");
+        } else xhr.send();
+        console.log(methodType + " request sent to the server");
     });
 }

@@ -1,14 +1,46 @@
 {
-    "EmployeePayrollDB":[
-        {
-        "id": "15",
-        "_department": ["HR", "Sales", "Finance", "Engineer", "Others"],
-        "_gender": "male",
-        "_name": "Madhukar",
-        "_note": "asdasD ASda qde qaed de",
-        "_profilePic": "../assets/profile-images/Ellipse -3.png",
-        "_salary": "500000",
-        "_startDate": "10 Dec 2021"
-        }
-    ]
+  "EmployeePayrollDB": [
+    {
+      "id": "15",
+      "_department": [
+        "HR",
+        "Sales",
+        "Finance",
+        "Engineer",
+        "Others"
+      ],
+      "_gender": "male",
+      "_name": "Madhukar",
+      "_note": "asdasD ASda qde qaed de",
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_salary": "500000",
+      "_startDate": "2 Dec 2021"
+    },
+    {
+      "_name": "Saran",
+      "_profilePic": "../assets/profile-images/Ellipse -8.png",
+      "_gender": "male",
+      "_department": [
+        "Sales",
+        "Finance",
+        "Engineer"
+      ],
+      "_salary": "479200",
+      "_note": "asdsad asdas dsad asdasd as",
+      "_startDate": "19 Dec 2021",
+      "id": "vjKhOR6"
+    },
+    {
+      "_name": "Sarah",
+      "_profilePic": "../assets/profile-images/Ellipse -1.png",
+      "_gender": "female",
+      "_department": [
+        "HR"
+      ],
+      "_salary": "343000",
+      "_note": "",
+      "_startDate": "1 Dec 2021",
+      "id": "2i_BZFS"
+    }
+  ]
 }

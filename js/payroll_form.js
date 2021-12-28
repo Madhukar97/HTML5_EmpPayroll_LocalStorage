@@ -61,8 +61,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const save = (event) => {
   try {
     setEmployeePayrollObject();
-    createAndUpdateStorage();
-    window.location.replace(site_properties.home_page);
+    if (site_properties.use_local_storage.match("ture")) {
+      createAndUpdateStorage();
+      window.location.replace(site_properties.home_page);
+    } else {
+      createOrUpdateEmployeePayrollIntoJSONServer();
+    }
   } catch (e) {
     return;
   }
@@ -90,6 +94,22 @@ const getSelectedValues = (propertyValue) => {
     if (item.checked) selItems.push(item.value);
   });
   return selItems;
+}
+
+const createOrUpdateEmployeePayrollIntoJSONServer = () => {
+  let postURL = site_properties.server_url;
+  let methodCall = "POST";
+  if (isUpdate) {
+    methodCall = "PUT";
+    postURL = postURL + emplopyeePayrollObj.id.toString();
+  }
+  makeServiceCall(methodCall, postURL, true, emplopyeePayrollObj)
+    .then(responseText => {
+      window.location.replace(site_properties.home_page);
+    })
+    .catch(error => {
+      throw error;
+    });
 }
 
 function createAndUpdateStorage() {

@@ -1,7 +1,7 @@
 let empPayrollList;
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  if(site_properties.use_local_storage.match("true")){
+  if (site_properties.use_local_storage.match("true")) {
     getEmployeePayrollDataFromStorage();
   } else getEmployeePayrollDataFromJSONServer();
 });
@@ -27,7 +27,7 @@ const getEmployeePayrollDataFromJSONServer = () => {
       console.log("GET Error Status: " + JSON.stringify(error));
       empPayrollList = [];
       processEmployeeCountDataResponse();
-    }); 
+    });
 }
 
 const createInnerHtml = () => {
